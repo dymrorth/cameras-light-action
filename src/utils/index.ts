@@ -1,0 +1,1 @@
+export { getPosterPath } from './paths'
