@@ -5,3 +5,7 @@ export interface ActionFilmFetched extends Action {
     type: '@film/fetched'
     film: Film
 }
+
+export interface ActionDefault extends Action {
+    type: 'default'
+}

@@ -40,6 +40,16 @@ Para correr la aplicación en modo desarrollo:
 yarn start
 ```
 
+Para ejecutar los test:
+```
+yarn test
+```
+
+Para ejecutar los test y ver el coverage:
+```
+yarn test:coverage
+```
+
 
 ## Estructura del proyecto
 
@@ -92,7 +102,7 @@ A la hora de formatear el código, utilizo _prettier_ junto con un archivo de co
 Para las rutas, he usado _react-router-dom_.
 Para las llamadas a la API he utilizado _axios_. También he utilizado la librería _qs_ para el parseo de parametros en las llamadas.
 
-En el testing utilizo *React Testing Library* con sus dependencias _@testing-library/react_, _@testing-library/user-event_, _@testing-library/dom_.
+En el testing utilizo *React Testing Library* con sus dependencias _@testing-library/react_, _@testing-library/user-event_, _@testing-library/dom_. Para testear la inmutabilidad de los _states_ de *Redux*, utilizo la librería _deep-freeze_.
 
 He usado *SASS* como preprocesador de CSS, para ello se necesita de las dependencias _node-sass_ y _sass-loader_
  
