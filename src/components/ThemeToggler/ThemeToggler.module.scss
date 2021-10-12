@@ -1,0 +1,33 @@
+.tooltip {
+    position: relative;
+
+    .tooltipText {
+        opacity: 0;
+        width: 200px;
+        text-align: center;
+        position: absolute;
+        z-index: 1;
+        bottom: 0;
+        right: 0;
+        color: var(--color-text-1);
+        transition: all 0.4s ease;
+        font-size: 14px;
+    }
+
+    &:hover {
+        .tooltipText {
+            opacity: 1;
+        }
+    }
+}
+
+.icon {
+    position: relative;
+    fill: var(--color-text-1);
+    cursor: pointer;
+    transition: all 0.4s ease;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}

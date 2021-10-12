@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react'
 
+import 'styles/global.scss'
+
 import { useAppDispatch, useAppSelector } from './hooks'
 import { fetchFilm } from './store/film/filmActions'
 import { fetchCovers } from './store/covers/coversActions'
+
+import ThemeToggler from './components/ThemeToggler/ThemeToggler'
 
 const App = () => {
     const dispatch = useAppDispatch()
@@ -28,6 +32,7 @@ const App = () => {
     if (film.id && covers.page) {
         return (
             <>
+                <ThemeToggler />
                 <div>
                     <h1>{film.title}</h1>
                     <small>{`${film.rating} (${film.voteCount})`}</small>
@@ -41,7 +46,7 @@ const App = () => {
                         <small>{`${film.rating} (${film.voteCount})`}</small>
                     </div>
                 ))}
-                <div style={{display: 'flex'}}>
+                <div style={{ display: 'flex' }}>
                     <button onClick={handlePrevious}>prev</button>
                     <p>{covers.page}</p>
                     <button onClick={handleNext}>next</button>
