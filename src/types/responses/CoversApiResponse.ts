@@ -1,4 +1,4 @@
-import { FilmApiResponse } from './FilmApiResponse'
+import { FilmApiResponse } from 'types'
 
 export type CoversApiResponse = {
     page: number
