@@ -85,6 +85,8 @@ lights-camera-action
 
 ## Dependencias externas
 
+El proyecto lo he creado con _create-react-app_ usando los templates de *Typescript* y *PWA*. Para la *PWA* se utiliza _workbox_, una librería que te permite crear un _service-worker_ implementando buenas prácticas.
+
 A la hora de formatear el código, utilizo _prettier_ junto con un archivo de configuración personalizado (_.prettierrc_). Además, he configurado el proyecto para que ejecute automáticamente el formateo de _prettier_ justo antes de hacer un commit con las librerías _husky_ y _pretty-quick_.
 
 Para las rutas, he usado _react-router-dom_.
@@ -95,5 +97,6 @@ En el testing utilizo *React Testing Library* con sus dependencias _@testing-lib
 He usado *SASS* como preprocesador de CSS, para ello se necesita de las dependencias _node-sass_ y _sass-loader_
  
 Para el manejo del estado de la aplicación he usado *Redux* con sus dependencias _react-redux_ para una aplicación en *React* y _redux-thunk_ para el manejo de lógica asíncrona.
+
 
 ## Decisiones de diseño
