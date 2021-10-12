@@ -1,4 +1,4 @@
-import { Person } from './Person'
+import { Person } from 'types'
 
 export type Credits = {
     cast: Person[]

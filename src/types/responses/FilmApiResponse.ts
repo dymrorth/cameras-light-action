@@ -1,4 +1,4 @@
-import { Credits } from "./Credits";
+import { Credits } from 'types'
 
 export type FilmApiResponse = {
     credits: Credits
