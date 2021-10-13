@@ -24,7 +24,7 @@ yarn -v
 Ya puedes clonar el repositorio:
 
 ```shell
-git clone git@github.com:dymrorth/cameras-light-action.git
+git clone git@github.com:dymrorth/lights-camera-action.git
 ```
 
 Una vez clonado, ve al directorio donde se haya descargado e instala las dependencias:
