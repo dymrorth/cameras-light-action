@@ -33,18 +33,19 @@ const App = () => {
         return (
             <>
                 <ThemeToggler />
-                <div>
+                <article>
                     <h1>{film.title}</h1>
+                    <p>{film.overview}</p>
                     <small>{`${film.rating} (${film.voteCount})`}</small>
                     <img src={film.poster} alt="" />
-                </div>
+                </article>
 
                 {covers.covers.map(cover => (
-                    <div key={cover.id}>
+                    <article key={cover.id}>
                         <img src={cover.poster} style={{ width: 200 }} alt="" />
                         <h3>{cover.title}</h3>
                         <small>{`${film.rating} (${film.voteCount})`}</small>
-                    </div>
+                    </article>
                 ))}
                 <div style={{ display: 'flex' }}>
                     <button onClick={handlePrevious}>prev</button>

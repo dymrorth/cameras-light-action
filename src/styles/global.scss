@@ -5,6 +5,6 @@
 @import './fonts';
 
 body {
-    transition: background var(--transition-duration);
+    transition: background var(--transition-duration) ease;
     background-color: var(--color-background-1);
 }
