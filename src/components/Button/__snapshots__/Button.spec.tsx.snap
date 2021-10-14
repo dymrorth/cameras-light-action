@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> when mounted has inner text 1`] = `
+<DocumentFragment>
+  <button
+    class="button"
+  >
+    Click me!
+  </button>
+</DocumentFragment>
+`;
