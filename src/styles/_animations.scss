@@ -1,0 +1,46 @@
+$animation-breathe: breathe 2s cubic-bezier(0.6, -0.28, 0.74, 0.05) infinite alternate;
+
+@keyframes breathe {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.3;
+    }
+}
+
+@keyframes borderTopToTransparent {
+    from {
+        border-top-color: var(--color-primary);
+    }
+    to {
+        border-top-color: transparent;
+    }
+}
+
+@keyframes borderRightToTransparent {
+    from {
+        border-right-color: var(--color-primary);
+    }
+    to {
+        border-right-color: transparent;
+    }
+}
+
+@keyframes borderBottomToTransparent {
+    from {
+        border-bottom-color: var(--color-primary);
+    }
+    to {
+        border-bottom-color: transparent;
+    }
+}
+
+@keyframes borderLeftToTransparent {
+    from {
+        border-left-color: var(--color-primary);
+    }
+    to {
+        border-left-color: transparent;
+    }
+}

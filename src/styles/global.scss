@@ -3,6 +3,8 @@
 @import './colors';
 @import './theme';
 @import './fonts';
+@import './animations';
+@import './placeholders';
 
 body {
     transition: background var(--transition-duration) ease;

@@ -31,15 +31,15 @@
 }
 
 :root {
-    @include theme-light;
+    @include theme-dark;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
     :root:not([data-user-theme]) {
         @include theme-dark;
     }
 }
 
-:root[data-user-theme='dark'] {
-    @include theme-dark;
+:root[data-user-theme='light'] {
+    @include theme-light;
 }

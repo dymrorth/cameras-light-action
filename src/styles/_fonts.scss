@@ -1,13 +1,10 @@
+@import './fontSizes';
+
 @import url('https://fonts.googleapis.com/css2?family=Six+Caps&family=Indie+Flower&family=Varela&display=swap');
 
 $font-family-base: 'Varela', sans-serif;
 $font-family-alternative: 'Six Caps', sans-serif;
 $font-family-bio: 'Indie Flower', cursive;
-
-$font-size-base: 1rem;
-$font-size-xxl: 3.052rem;
-$font-size-xl: 2.441rem;
-$font-size-l: 1.953rem;
 
 @mixin font-base($font-size: $font-size-base, $font-weight: 300, $color: var(--color-text-1)) {
     font: {

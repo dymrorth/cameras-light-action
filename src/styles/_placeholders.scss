@@ -1,0 +1,8 @@
+@mixin placeholderLoadingElement($width: 100px, $height: $font-size-base, $radius: 5px, $margin: 0) {
+    animation: $animation-breathe;
+    width: $width;
+    height: $height;
+    border-radius: $radius;
+    margin: $margin;
+    background: var(--color-shadow-2);
+}
