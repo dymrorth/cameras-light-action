@@ -1,0 +1,17 @@
+@import 'styles/common';
+
+.covers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: auto min-content;
+    grid-gap: $space-m;
+    max-width: $desktop-break;
+    margin: 0 auto;
+}
+
+.paginator {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

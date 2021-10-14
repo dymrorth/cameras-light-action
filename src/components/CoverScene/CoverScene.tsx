@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 import { CoversPaginated } from 'types'
+import styles from './CoverScene.module.scss'
 
 import { useThunkDispatch, useAppSelector } from 'hooks'
 import { fetchCovers } from 'store/covers/coversActions'
@@ -26,8 +27,7 @@ const CoverScene = () => {
     }
 
     return (
-        <section>
-            <Button>Cover Scene</Button>
+        <section className={styles.covers}>
             {covers?.covers?.length > 0
                 ? covers?.covers.map(cover => <Cover key={cover.id} {...cover} />)
                 : new Array(10).fill(0).map((element, index) => (
@@ -35,7 +35,7 @@ const CoverScene = () => {
                           <CoverPlaceholder />
                       </div>
                   ))}
-            <div style={{ display: 'flex' }}>
+            <div className={styles.paginator}>
                 <Button onClick={handlePrevious}>{'<'}</Button>
                 <p>{covers?.page}</p>
                 <Button onClick={handleNext}>{'>'}</Button>
