@@ -2,13 +2,13 @@ import React, { useEffect } from 'react'
 
 import { CoversPaginated } from 'types'
 
-import { useAppDispatch, useAppSelector } from 'hooks'
+import { useThunkDispatch, useAppSelector } from 'hooks'
 import { fetchCovers } from 'store/covers/coversActions'
 
-import { Cover } from 'components'
+import { Button, Cover, CoverPlaceholder } from 'components'
 
 const CoverScene = () => {
-    const dispatch = useAppDispatch()
+    const dispatch = useThunkDispatch()
     const covers: CoversPaginated = useAppSelector(state => state.covers)
 
     useEffect(() => {
@@ -27,20 +27,18 @@ const CoverScene = () => {
 
     return (
         <section>
-            Cover Scene
-            {covers?.covers &&
-                covers.covers.map(cover => (
-                    <article key={cover.id}>
-                        <Cover />
-                        <img src={cover.poster} style={{ width: 200 }} alt="" />
-                        <h3>{cover.title}</h3>
-                        <small>{`${cover.rating} (${cover.voteCount})`}</small>
-                    </article>
-                ))}
+            <Button>Cover Scene</Button>
+            {covers?.covers?.length > 0
+                ? covers?.covers.map(cover => <Cover key={cover.id} {...cover} />)
+                : new Array(10).fill(0).map((element, index) => (
+                      <div key={`CoverPlaceholder_${index}`}>
+                          <CoverPlaceholder />
+                      </div>
+                  ))}
             <div style={{ display: 'flex' }}>
-                <button onClick={handlePrevious}>prev</button>
+                <Button onClick={handlePrevious}>{'<'}</Button>
                 <p>{covers?.page}</p>
-                <button onClick={handleNext}>next</button>
+                <Button onClick={handleNext}>{'>'}</Button>
             </div>
         </section>
     )

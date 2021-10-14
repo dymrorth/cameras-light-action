@@ -2,11 +2,13 @@ import React, { useEffect } from 'react'
 
 import { Film } from 'api/models/Film'
 
-import { useAppDispatch, useAppSelector } from 'hooks'
+import { useAppSelector, useThunkDispatch } from 'hooks'
 import { fetchFilm } from 'store/film/filmActions'
 
+import { FilmPlaceholder, Poster, Rating } from 'components'
+
 const FilmScene: React.FC<{}> = () => {
-    const dispatch = useAppDispatch()
+    const dispatch = useThunkDispatch()
     const film: Film = useAppSelector(state => state.film)
 
     useEffect(() => {
@@ -20,14 +22,22 @@ const FilmScene: React.FC<{}> = () => {
                 <article>
                     <h1>{film.title}</h1>
                     <p>{film.overview}</p>
-                    <small>{`${film.rating} (${film.voteCount})`}</small>
-                    <img src={film.poster} alt="" />
+                    <h3>Cast</h3>
+                    {film?.cast.map(actor => (
+                        <p key={actor}>{actor}</p>
+                    ))}
+                    <h3>Director</h3>
+                    {film?.directors.map(director => (
+                        <p key={director}>{director}</p>
+                    ))}
+                    <Rating value={film.rating} count={film.voteCount} />
+                    <Poster src={film.poster} />
                 </article>
             </section>
         )
     }
 
-    return null
+    return <FilmPlaceholder />
 }
 
 export default FilmScene
