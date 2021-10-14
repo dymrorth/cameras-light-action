@@ -1,0 +1,20 @@
+@import 'styles/common';
+
+.cover {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    background: var(--color-background-2);
+    border-radius: 5px;
+    padding: $space-m $space-l;
+
+    .rating {
+        @include placeholderLoadingElement(50px, 50px, 100%);
+    }
+    .title {
+        @include placeholderLoadingElement(250px, 2rem);
+    }
+}
