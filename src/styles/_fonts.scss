@@ -32,7 +32,7 @@ $font-family-bio: 'Indie Flower', cursive;
         size: $font-size;
     }
     color: $color;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
 }
 
 body {
@@ -50,4 +50,8 @@ h2 {
 
 h3 {
     @include font-alternative($font-size-l, var(--color-text-2));
+}
+
+a {
+    color: var(--color-text-1);
 }
