@@ -6,8 +6,3 @@
 @import './animations';
 @import './placeholders';
 @import './breakpoints';
-
-body {
-    transition: background var(--transition-duration) ease;
-    background-color: var(--color-background-1);
-}

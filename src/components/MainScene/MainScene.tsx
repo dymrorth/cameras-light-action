@@ -1,10 +1,11 @@
 import React, { Suspense, lazy } from 'react'
 
 import 'styles/global.scss'
+import styles from './MainScene.module.scss'
 
 import { ROUTES } from 'constants/index'
 
-import { Topbar, Footer } from 'components'
+import { Header, Footer } from 'components'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -12,10 +13,10 @@ const CoverScene = lazy(() => import('components/CoverScene/CoverScene'))
 const FilmScene = lazy(() => import('components/FilmScene/FilmScene'))
 const AboutMe = lazy(() => import('components/AboutMe/AboutMe'))
 
-const App = () => {
+const MainScene: React.FC<{}> = () => {
     return (
-        <main>
-            <Topbar />
+        <main className={styles.main}>
+            <Header />
             <Suspense fallback={<h2>loading...</h2>}>
                 <Router>
                     <Switch>
@@ -31,4 +32,4 @@ const App = () => {
     )
 }
 
-export default App
+export default MainScene

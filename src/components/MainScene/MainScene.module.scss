@@ -1,0 +1,10 @@
+@import 'styles/common';
+
+.main {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: relative;
+    background-color: var(--color-background-1);
+    transition: background var(--transition-duration) ease;
+}
