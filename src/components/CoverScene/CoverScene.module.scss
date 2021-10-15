@@ -1,5 +1,8 @@
 @import 'styles/common';
 
+$cover-animation-delay: 0.08s;
+$cover-animation-timing: cubic-bezier(0.45, 0.05, 0.55, 0.95);
+
 .covers {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -8,6 +11,13 @@
     max-width: $desktop-break;
     width: 100%;
     margin: 0 auto;
+}
+
+@for $cover from 1 through 20 {
+    .covers article:nth-child(#{$cover}) {
+        animation: coverEntrance var(--animation-duration) $cover-animation-timing backwards;
+        animation-delay: $cover * $cover-animation-delay;
+    }
 }
 
 .paginator {
