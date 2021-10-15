@@ -1,5 +1,5 @@
 export const ROUTES = {
     home: '/',
-    film: '/film/:id',
+    film: '/film',
     aboutMe: '/about-me',
 }

@@ -21,7 +21,7 @@ const MainScene: React.FC<{}> = () => {
                 <Router>
                     <Switch>
                         <Route exact path={ROUTES.home} render={() => <CoverScene />} />
-                        <Route exact path={ROUTES.film} render={() => <FilmScene />} />
+                        <Route exact path={`${ROUTES.film}/:id`} render={() => <FilmScene />} />
                         <Route exact path={ROUTES.aboutMe} render={() => <AboutMe />} />
                         <Route render={() => <h1>404 Not Found</h1>} />
                     </Switch>

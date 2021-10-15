@@ -1,29 +1,31 @@
 @import 'styles/common';
 
+$animation-delay: 1s;
+$top-slice-animation: borderTopToTransparent var(--transition-duration) ease $animation-delay forwards;
+$right-slice-animation: borderRightToTransparent var(--transition-duration) ease $animation-delay * 2 forwards;
+$bottom-slice-animation: borderBottomToTransparent var(--transition-duration) ease $animation-delay * 3 forwards;
+$left-slice-animation: borderLeftToTransparent var(--transition-duration) ease $animation-delay * 4 forwards;
+
 .gauge {
     position: relative;
     width: 100px;
     height: 100px;
+    background: var(--color-background-1);
     border: 10px solid var(--color-primary);
     border-radius: 100%;
+    box-shadow: 0 0 0 10px var(--color-background-1);
 
     &[data-quarter='0'] {
-        animation: borderTopToTransparent var(--transition-duration) ease var(--transition-duration) forwards,
-            borderRightToTransparent var(--transition-duration) ease calc(2 * var(--transition-duration)) forwards,
-            borderBottomToTransparent var(--transition-duration) ease calc(3 * var(--transition-duration)) forwards,
-            borderLeftToTransparent var(--transition-duration) ease calc(4 * var(--transition-duration)) forwards;
+        animation: $top-slice-animation, $right-slice-animation, $bottom-slice-animation, $left-slice-animation;
     }
     &[data-quarter='1'] {
-        animation: borderTopToTransparent var(--transition-duration) ease var(--transition-duration) forwards,
-            borderRightToTransparent var(--transition-duration) ease calc(2 * var(--transition-duration)) forwards,
-            borderBottomToTransparent var(--transition-duration) ease calc(3 * var(--transition-duration)) forwards;
+        animation: $top-slice-animation, $right-slice-animation, $bottom-slice-animation;
     }
     &[data-quarter='2'] {
-        animation: borderTopToTransparent var(--transition-duration) ease var(--transition-duration) forwards,
-            borderRightToTransparent var(--transition-duration) ease calc(2 * var(--transition-duration)) forwards;
+        animation: $top-slice-animation, $right-slice-animation;
     }
     &[data-quarter='3'] {
-        animation: borderTopToTransparent var(--transition-duration) ease var(--transition-duration) forwards;
+        animation: $top-slice-animation;
     }
 
     &::after,

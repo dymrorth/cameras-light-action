@@ -3,16 +3,19 @@ import React from 'react'
 import { RatingProps } from './Rating.types'
 import styles from './Rating.module.scss'
 
-const Rating: React.FC<RatingProps> = ({ count = 0, max = 10, value = 0 }) => {
+import classNames from 'classnames'
 
+const Rating: React.FC<RatingProps> = ({ count = 0, max = 10, value = 0, className }) => {
     const percent = (100 * value) / max
-    const quarter = Math.round(percent/25)
+    const quarter = Math.round(percent / 25)
+
+    const ratingClasses = classNames(styles.gauge, className)
 
     return (
         <div>
-            <div className={styles.gauge} data-quarter={quarter}>
+            <div className={ratingClasses} data-quarter={quarter}>
                 <span className={styles.value}>{value}</span>
-                <span className={styles.count}>{`(${count})`}</span>
+                {!!count && <span className={styles.count}>{`(${count})`}</span>}
             </div>
         </div>
     )
