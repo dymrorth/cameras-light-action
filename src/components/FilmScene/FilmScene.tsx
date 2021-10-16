@@ -2,18 +2,28 @@ import React, { useEffect } from 'react'
 
 import { Film } from 'api/models/Film'
 
-import { useAppSelector, useThunkDispatch } from 'hooks'
+import { useAppSelector, useThunkDispatch, useRestoreScroll } from 'hooks'
 import { fetchFilm } from 'store/film/filmActions'
 
 import { FilmPlaceholder, Poster, Rating } from 'components'
 
+import { useParams } from 'react-router'
+
+type paramsProps = { id: string | undefined }
+
 const FilmScene: React.FC<{}> = () => {
+    useRestoreScroll()
+
     const dispatch = useThunkDispatch()
     const film: Film = useAppSelector(state => state.film)
 
+    const params = useParams<paramsProps>()
+
     useEffect(() => {
-        dispatch(fetchFilm(566525))
-    }, [dispatch])
+        if (params?.id) {
+            dispatch(fetchFilm(+params.id))
+        }
+    }, [dispatch, params])
 
     if (film.id) {
         return (

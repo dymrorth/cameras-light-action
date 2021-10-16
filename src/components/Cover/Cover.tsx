@@ -14,7 +14,6 @@ const Cover: React.FC<CoverProps> = ({ id, poster, title, rating, voteCount, ove
 
     const handleFilmClick: React.MouseEventHandler<HTMLButtonElement> = event => {
         event.stopPropagation()
-        console.log(`go to film ${id}`)
         history.push(`${ROUTES.film}/${id}`)
     }
 

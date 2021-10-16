@@ -3,12 +3,14 @@ import React, { useEffect } from 'react'
 import { CoversPaginated } from 'types'
 import styles from './CoverScene.module.scss'
 
-import { useThunkDispatch, useAppSelector } from 'hooks'
+import { useThunkDispatch, useAppSelector, useRestoreScroll } from 'hooks'
 import { fetchCovers } from 'store/covers/coversActions'
 
 import { Button, Cover, CoverPlaceholder } from 'components'
 
 const CoverScene = () => {
+    useRestoreScroll()
+
     const dispatch = useThunkDispatch()
     const covers: CoversPaginated = useAppSelector(state => state.covers)
 
