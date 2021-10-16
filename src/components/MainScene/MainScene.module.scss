@@ -8,4 +8,13 @@
     position: relative;
     background-color: var(--color-background-1);
     transition: background var(--transition-duration) ease;
+
+    .content {
+        display: grid;
+        justify-items: center;
+        max-width: $desktop-break;
+        width: 100%;
+        margin: 0 auto;
+        padding: $space-xl $space-m;    
+    }
 }
