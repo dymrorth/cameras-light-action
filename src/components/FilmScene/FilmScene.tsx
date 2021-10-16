@@ -5,7 +5,7 @@ import { Film } from 'api/models/Film'
 import { useAppSelector, useThunkDispatch, useRestoreScroll } from 'hooks'
 import { fetchFilm } from 'store/film/filmActions'
 
-import { FilmPlaceholder, Poster, Rating } from 'components'
+import { FilmPlaceholder, Poster, Rating, UIError } from 'components'
 
 import { useParams } from 'react-router'
 
@@ -17,6 +17,8 @@ const FilmScene: React.FC<{}> = () => {
     const dispatch = useThunkDispatch()
     const film: Film = useAppSelector(state => state.film)
 
+    const { isLoading, hasError } = useAppSelector(state => state.ui)
+
     const params = useParams<paramsProps>()
 
     useEffect(() => {
@@ -25,29 +27,28 @@ const FilmScene: React.FC<{}> = () => {
         }
     }, [dispatch, params])
 
-    if (film.id) {
+    if (isLoading) {
+        return <FilmPlaceholder />
+    } else {
         return (
-            <section>
-                Film Scene Section
-                <article>
-                    <h1>{film.title}</h1>
-                    <p>{film.overview}</p>
-                    <h3>Cast</h3>
-                    {film?.cast.map(actor => (
-                        <p key={actor}>{actor}</p>
-                    ))}
-                    <h3>Director</h3>
-                    {film?.directors.map(director => (
-                        <p key={director}>{director}</p>
-                    ))}
-                    <Rating value={film.rating} count={film.voteCount} />
-                    <Poster src={film.poster} />
-                </article>
-            </section>
+            <UIError error={hasError}>
+                <section>
+                    <article>
+                        <h1>{film.title}</h1>
+                        <p>{film.overview}</p>
+                        <h3>Cast</h3>
+                        {film?.cast && film?.cast.map(actor => <p key={actor}>{actor}</p>)}
+                        <h3>Director</h3>
+                        {film?.directors && film?.directors.map(director => <p key={director}>{director}</p>)}
+                        <Rating value={film.rating} count={film.voteCount} />
+                        <Poster src={film.poster} />
+                    </article>
+                </section>
+            </UIError>
         )
     }
 
-    return <FilmPlaceholder />
+    return null
 }
 
 export default FilmScene
