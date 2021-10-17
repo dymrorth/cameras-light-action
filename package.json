@@ -41,13 +41,19 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "test:coverage": "yarn test -- --coverage --watchAll",
+        "test:headless": "cypress run",
+        "test:visual": "cypress open",
         "eject": "react-scripts eject"
     },
     "eslintConfig": {
+        "env": {
+            "cypress/globals": true
+        },
         "extends": [
             "react-app",
             "react-app/jest"
-        ]
+        ],
+        "plugins": ["cypress"]
     },
     "browserslist": {
         "production": [
@@ -69,7 +75,9 @@
         "@types/react-router-dom": "^5.3.1",
         "axios": "^0.22.0",
         "classnames": "^2.3.1",
+        "cypress": "^8.6.0",
         "deep-freeze": "^0.0.1",
+        "eslint-plugin-cypress": "^2.12.1",
         "husky": "^7.0.0",
         "node-sass": "^6.0.1",
         "prettier": "^2.4.1",
