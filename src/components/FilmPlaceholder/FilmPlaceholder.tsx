@@ -4,7 +4,7 @@ import styles from './FilmPlaceholder.module.scss'
 
 const FilmPlaceholder = () => {
     return (
-        <div className={styles.film}>
+        <div className={styles.film} data-testid="FilmPlaceholder">
             <div className={styles.poster}></div>
             <div className={styles.content}>
                 <div className={styles.top}>

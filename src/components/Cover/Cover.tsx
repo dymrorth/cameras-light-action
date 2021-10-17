@@ -18,7 +18,7 @@ const Cover: React.FC<CoverProps> = ({ id, poster, title, rating, voteCount, ove
     }
 
     return (
-        <article className={styles.cover} style={{ backgroundImage: `url(${poster})` }} onClick={handleFilmClick}>
+        <article className={styles.cover} style={{ backgroundImage: `url(${poster})` }} onClick={handleFilmClick} data-cy="cover">
             <Rating className={styles.rating} value={rating} />
             <div className={styles.content}>
                 <h3 className={styles.title}>{title}</h3>

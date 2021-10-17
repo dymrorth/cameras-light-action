@@ -47,15 +47,31 @@ Para correr la aplicación en modo desarrollo:
 yarn start
 ```
 
-Para ejecutar los test:
+## Testing
+
+Para ejecutar los test unitarios:
 ```
 yarn test
 ```
 
-Para ejecutar los test y ver el coverage:
+Para ejecutar los test unitarios y ver el coverage:
 ```
 yarn test:coverage
 ```
+
+Para ejecutar los test e2e tenemos dos opciones, modo _headless_ o modo visual.
+En el modo _headless_ los test se ejecutan en la consola, son un poco más rápidos y consumen menos memoria. Para ejecutarlos:
+```
+yarn test:headless
+```
+
+Para los test e2e en modo visual, primero tenemos que tener la aplicación corriendo:
+```
+# Si no ya una instancia corriendo en local
+# yarn start
+yarn test:visual
+```
+
 
 
 ## Estructura del proyecto
@@ -70,6 +86,7 @@ lights-camera-action
 ├── README.md
 ├── tsconfig.json
 ├── yarn.lock
+├── cypress
 ├── public
 │   ├── favicon.ico
 │   ├── index.html
@@ -107,6 +124,7 @@ Para las rutas, he usado _react-router-dom_.
 Para las llamadas a la API he utilizado _axios_. También he utilizado la librería _qs_ para el parseo de parametros en las llamadas.
 
 En el testing utilizo *React Testing Library* con sus dependencias _@testing-library/react_, _@testing-library/user-event_, _@testing-library/dom_. Para testear la inmutabilidad de los _states_ de *Redux*, utilizo la librería _deep-freeze_.
+Para los test end to end, utilizo *Cypress*.
 
 He usado *SASS* como preprocesador de CSS, para ello se necesita de las dependencias _node-sass_ y _sass-loader_
  
