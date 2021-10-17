@@ -13,3 +13,14 @@ export const fetchCovers = (page: number) => async (dispatch: Dispatch) => {
         dispatchErrorByName(error, dispatch)
     }
 }
+
+export const searchFilm = (search: string, page: number) => async (dispatch: Dispatch) => {
+    try {
+        dispatch({ type: '@ui/loading' })
+        const covers = await FilmService.searchFilm(search, page)
+        dispatch({ type: '@covers/fetched', covers })
+        dispatch({ type: '@ui/loaded' })
+    } catch (error: any) {
+        dispatchErrorByName(error, dispatch)
+    }
+}

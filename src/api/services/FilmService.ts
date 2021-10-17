@@ -53,6 +53,20 @@ class FilmService {
             throw new ApiError(error)
         }
     }
+
+    searchFilm = async (name: string, page: number = 1): Promise<CoversPaginated> => {
+        const resource = `/search/movie`
+        const params = {
+            query: name,
+            page,
+        }
+        try {
+            const response = await ApiService.get(resource, params)
+            return apiResponseToCoversPaginated(response.data, this.baseResourcesPath)
+        } catch (error: any) {
+            throw new ApiError(error)
+        }
+    }
 }
 
 export default new FilmService()

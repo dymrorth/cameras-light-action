@@ -7,11 +7,10 @@ $cover-animation-timing: cubic-bezier(0.45, 0.05, 0.55, 0.95);
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-template-rows: auto min-content;
+    grid-template-rows: min-content auto min-content;
     grid-gap: $space-m;
     width: 100%;
     margin: 0 auto;
-    padding: $space-xl 0;
 }
 
 @for $cover from 1 through 20 {
@@ -19,6 +18,11 @@ $cover-animation-timing: cubic-bezier(0.45, 0.05, 0.55, 0.95);
         animation: coverEntrance var(--animation-duration) $cover-animation-timing backwards;
         animation-delay: $cover * $cover-animation-delay;
     }
+}
+
+.search {
+    grid-column: 1 / -1;
+    margin-bottom: $space-l;
 }
 
 .paginator {

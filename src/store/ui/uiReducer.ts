@@ -11,7 +11,7 @@ const initialState: UIState = {
 export const uiReducer = (state = initialState, action: AnyAction) => {
     switch (action.type) {
         case '@ui/loading':
-            return { ...state, isLoading: true }
+            return { ...state, isLoading: true, hasError: false }
         case '@ui/loaded':
             return { ...state, isLoading: false }
         case '@ui/errored':
