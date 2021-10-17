@@ -2,6 +2,8 @@
 
 # Lights Camera Action!
 
+Esta aplicación es una PWA instalable y ejecutable offline con datos que se han ido guardando en cache. Desde el siguiente link se puede ver una demo desplegada:
+
 ## [Demo](https://gallant-swirles-f01a6b.netlify.app)
 ## Instalación y desarrollo
 
