@@ -3,6 +3,7 @@
 .footer {
     width: 100%;
     background: var(--color-background-2);
+    z-index: $space-level-top;
 
     .content {
         max-width: $desktop-break;

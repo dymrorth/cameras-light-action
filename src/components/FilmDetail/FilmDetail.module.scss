@@ -1,0 +1,95 @@
+@import 'styles/common';
+
+.film {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-background-2);
+    border-radius: 5px;
+    overflow: hidden;
+    padding: $space-l $space-m;
+
+    & > * {
+        z-index: 2;
+    }
+
+    .poster {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        z-index: 1;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: var(--color-overlay);
+        background-blend-mode: overlay;
+    }
+
+    .main {
+        .top {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+
+            .title {
+                padding-right: $space-xs;
+            }
+        }
+
+        .overview {
+            margin: $space-s 0 $space-l;
+        }
+    }
+
+    .direction {
+        z-index: 2;
+
+        .rating {
+            margin: 0 0 0 auto;
+        }
+    }
+
+    .namesList {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        margin-bottom: $space-l;
+
+        .name {
+            margin: $space-s $space-s 0 0;
+            white-space: nowrap;
+        }
+    }
+}
+
+@media only screen and (min-width: $desktop-break) {
+    .film {
+        flex-flow: row wrap;
+
+        .main {
+            flex-grow: 1;
+            padding-left: $space-m;
+        }
+
+        .break {
+            flex-basis: 100%;
+            height: 0;
+            margin-bottom: $space-l;
+        }
+        .poster {
+            position: relative;
+            border-radius: 5px;
+            width: 200px;
+            height: 300px;
+            background-attachment: initial;
+            background-blend-mode: normal;
+            background-color: none;
+        }
+
+        .overview {
+            max-width: 60ch;
+        }
+    }
+}

@@ -12,6 +12,8 @@
     --color-text-2: var(--color-text-dark-2);
     --color-text-3: var(--color-text-dark-3);
     --color-text-4: var(--color-text-dark-4);
+
+    --color-overlay: var(--color-overlay-dark);
 }
 
 @mixin theme-light {
@@ -28,6 +30,8 @@
     --color-text-2: var(--color-text-light-2);
     --color-text-3: var(--color-text-light-3);
     --color-text-4: var(--color-text-light-4);
+
+    --color-overlay: var(--color-overlay-light);
 }
 
 :root {

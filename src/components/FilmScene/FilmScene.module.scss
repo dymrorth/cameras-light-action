@@ -1,0 +1,11 @@
+@import 'styles/common';
+
+.backButton {
+    justify-self: flex-start;
+    margin-bottom: $space-s;
+    padding: $space-xs * 0.5 $space-m;
+
+    svg {
+        margin-right: $space-xs;
+    }
+}

@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react'
 
 import { Film } from 'api/models/Film'
+import styles from './FilmScene.module.scss'
 
 import { useAppSelector, useThunkDispatch, useRestoreScroll } from 'hooks'
 import { fetchFilm } from 'store/film/filmActions'
 
-import { FilmPlaceholder, Rating, UIError } from 'components'
+import { FilmPlaceholder, FilmDetail, UIError, Button } from 'components'
 
-import { useParams } from 'react-router'
+import { useParams, useHistory } from 'react-router'
+import { IoReturnDownBackOutline } from 'react-icons/io5'
 
 type paramsProps = { id: string | undefined }
 
@@ -20,6 +22,7 @@ const FilmScene: React.FC<{}> = () => {
     const { isLoading, hasError } = useAppSelector(state => state.ui)
 
     const params = useParams<paramsProps>()
+    const history = useHistory()
 
     useEffect(() => {
         if (params?.id) {
@@ -27,23 +30,17 @@ const FilmScene: React.FC<{}> = () => {
         }
     }, [dispatch, params])
 
+    const handleBackClick: React.MouseEventHandler<HTMLButtonElement> = () => {
+        history.goBack()
+    }
+
     if (isLoading) {
         return <FilmPlaceholder />
     } else {
         return (
             <UIError error={hasError}>
-                <section>
-                    <article>
-                        <h1>{film.title}</h1>
-                        <p>{film.overview}</p>
-                        <h3>Cast</h3>
-                        {film?.cast && film?.cast.map(actor => <p key={actor}>{actor}</p>)}
-                        <h3>Director</h3>
-                        {film?.directors && film?.directors.map(director => <p key={director}>{director}</p>)}
-                        <Rating value={film.rating} count={film.voteCount} />
-                        <img src={film.poster} />
-                    </article>
-                </section>
+                <Button onClick={handleBackClick} className={styles.backButton}><IoReturnDownBackOutline /> Back</Button>
+                <FilmDetail {...film}/>
             </UIError>
         )
     }

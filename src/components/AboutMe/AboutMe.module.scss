@@ -33,7 +33,7 @@ $floor-3: translateZ(9rem);
     }
 
     .front {
-        background: var(--color-shadow-1);
+        background: var(--color-overlay);
         background-image: $profile-image-url;
         background-size: cover;
         background-blend-mode: overlay;

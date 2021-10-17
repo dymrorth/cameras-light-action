@@ -1,10 +1,15 @@
 @import './fontSizes';
+@import './breakpoints';
 
 @import url('https://fonts.googleapis.com/css2?family=Six+Caps&family=Indie+Flower&family=Varela&display=swap');
 
 $font-family-base: 'Varela', sans-serif;
 $font-family-alternative: 'Six Caps', sans-serif;
 $font-family-bio: 'Indie Flower', cursive;
+
+:root {
+    --letter-spacing: 0.05em;
+}
 
 @mixin font-base($font-size: $font-size-base, $font-weight: 300, $color: var(--color-text-1)) {
     font: {
@@ -22,7 +27,7 @@ $font-family-bio: 'Indie Flower', cursive;
         size: $font-size;
     }
     color: $color;
-    letter-spacing: 0.15em;
+    letter-spacing: var(--letter-spacing);
     transition: color var(--transition-duration) ease;
 }
 
@@ -58,5 +63,11 @@ a {
 
     &:hover {
         color: var(--color-primary);
+    }
+}
+
+@media only screen and (min-width: $desktop-break) {
+    :root {
+        --letter-spacing: 0.15em;
     }
 }

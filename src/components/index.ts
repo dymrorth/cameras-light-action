@@ -4,6 +4,7 @@ import Cover from './Cover/Cover'
 import CoverPlaceholder from './CoverPlaceholder/CoverPlaceholder'
 import CoverScene from './CoverScene/CoverScene'
 import ErrorFallback from './ErrorFallback/ErrorFallback'
+import FilmDetail from './FilmDetail/FilmDetail'
 import FilmPlaceholder from './FilmPlaceholder/FilmPlaceholder'
 import FilmScene from './FilmScene/FilmScene'
 import Footer from './Footer/Footer'
@@ -21,6 +22,7 @@ export {
     CoverPlaceholder,
     CoverScene,
     ErrorFallback,
+    FilmDetail,
     FilmPlaceholder,
     FilmScene,
     Footer,
