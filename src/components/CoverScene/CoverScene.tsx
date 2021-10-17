@@ -14,6 +14,8 @@ import { uiIsLoading } from 'store/ui/uiActions'
 import { Button, Input, Cover, CoverPlaceholder, UIError } from 'components'
 
 import { FaArrowLeft, FaArrowRight, FaSearch } from 'react-icons/fa'
+import { useHistory, useLocation } from 'react-router'
+import qs from 'qs'
 
 const CoverScene = () => {
     useRestoreScroll()
@@ -26,35 +28,44 @@ const CoverScene = () => {
     const [searchField, setSearchField] = useState('')
     const debouncedSearchField = useDebounce(searchField, DEBOUNCE_SEARCH_TIME)
 
-    const hasCovers = covers?.covers?.length > 0
+    const history = useHistory()
+    const { search } = useLocation()
 
-    useEffect(() => {
-        fetchPopularFilms()
-    }, [dispatch])
+    const hasCovers = covers?.covers?.length > 0
 
     useEffect(() => {
         dispatch(uiIsLoading())
         if (!searchField) {
-            fetchPopularFilms()
+            fetchPopularFilms(getPageFromQueryParams())
         }
     }, [searchField])
 
     useEffect(() => {
         if (debouncedSearchField) {
+            history.push({})
             searchFilmByName(debouncedSearchField)
         }
     }, [debouncedSearchField])
 
     const fetchPopularFilms = (page: number = 1) => {
+        const searchParams = { page }
+        history.push({ search: qs.stringify(searchParams) })
         dispatch(fetchCovers(page))
     }
 
-    const searchFilmByName = (searchQuery: string, page: number = 1) => {
-        dispatch(searchFilm(searchQuery, page))
+    const searchFilmByName = (searchQuery: string) => {
+        dispatch(searchFilm(searchQuery))
+    }
+
+    const getPageFromQueryParams = () => {
+        const searchParams = qs.parse(search, { ignoreQueryPrefix: true })
+        const { page = 1 } = searchParams
+        return page as number
     }
 
     const handleSearchChange: React.ChangeEventHandler<HTMLInputElement> | undefined = event => {
-        setSearchField(event.target?.value)
+        const value = event.target?.value
+        setSearchField(value)
     }
 
     const handlePrevious = () => {
@@ -68,11 +79,7 @@ const CoverScene = () => {
     }
 
     const changePage = (page: number) => {
-        if (debouncedSearchField) {
-            searchFilmByName(debouncedSearchField, page)
-        } else {
-            fetchPopularFilms(page)
-        }
+        fetchPopularFilms(page)
         scrollToTop()
     }
 
@@ -98,9 +105,9 @@ const CoverScene = () => {
 
     return (
         <section className={styles.covers}>
-            <Input className={styles.search} onChange={handleSearchChange} placeholder="Search..." icon={<FaSearch />} />
+            <Input className={styles.search} onChange={handleSearchChange} placeholder="Search..." value={searchField} icon={<FaSearch />} />
             {renderCovers()}
-            {!isLoading && !hasError && hasCovers && (
+            {!isLoading && !hasError && hasCovers && !debouncedSearchField && (
                 <div className={styles.paginator}>
                     <Button onClick={handlePrevious} isDisabled={covers?.page === 1}>
                         <FaArrowLeft />

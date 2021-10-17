@@ -3,4 +3,5 @@ export interface InputProps {
     icon?: React.ReactNode
     onChange?: React.ChangeEventHandler<HTMLInputElement>
     placeholder?: string
+    value?: string
 }

@@ -14,7 +14,7 @@ export const fetchCovers = (page: number) => async (dispatch: Dispatch) => {
     }
 }
 
-export const searchFilm = (search: string, page: number) => async (dispatch: Dispatch) => {
+export const searchFilm = (search: string, page?: number) => async (dispatch: Dispatch) => {
     try {
         dispatch({ type: '@ui/loading' })
         const covers = await FilmService.searchFilm(search, page)
