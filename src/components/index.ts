@@ -8,6 +8,7 @@ import FilmPlaceholder from './FilmPlaceholder/FilmPlaceholder'
 import FilmScene from './FilmScene/FilmScene'
 import Footer from './Footer/Footer'
 import Header from './Header/Header'
+import Input from './Input/Input'
 import MainScene from './MainScene/MainScene'
 import Rating from './Rating/Rating'
 import ThemeToggler from './ThemeToggler/ThemeToggler'
@@ -24,6 +25,7 @@ export {
     FilmScene,
     Footer,
     Header,
+    Input,
     MainScene,
     Rating,
     ThemeToggler,
