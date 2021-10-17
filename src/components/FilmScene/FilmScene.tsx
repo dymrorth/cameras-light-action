@@ -47,8 +47,6 @@ const FilmScene: React.FC<{}> = () => {
             </UIError>
         )
     }
-
-    return null
 }
 
 export default FilmScene
