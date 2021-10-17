@@ -1,3 +1,6 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1167cfd4-c37c-4c97-a78e-db6ca96a4610/deploy-status)](https://app.netlify.com/sites/gallant-swirles-f01a6b/deploys)
+
+## [Demo](https://gallant-swirles-f01a6b.netlify.app)
 ## Instalación y desarrollo
 
 Es necesario tener instalado _Node_ y _npm_ en tu máquina. Si no lo tienes instalado, puedes descargarlo aqui: [https://nodejs.org/en/](https://nodejs.org/en/).
@@ -32,7 +35,7 @@ Una vez clonado, ve al directorio donde se haya descargado e instala las depende
 ```shell
 yarn install
 # o npm install
-# Esto tarda bastante, puedes ir a por un café mientras...
+# Esto suele tardar bastante, puedes ir a por un café mientras...
 ```
 
 Para correr la aplicación en modo desarrollo:
