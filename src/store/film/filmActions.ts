@@ -1,3 +1,4 @@
+import { dispatchErrorByName } from 'utils'
 import FilmService from 'api/services/FilmService'
 
 import { Dispatch } from 'redux'
@@ -9,10 +10,7 @@ export const fetchFilm = (id: number) => async (dispatch: Dispatch) => {
         dispatch({ type: '@film/fetched', film })
         dispatch({ type: '@ui/loaded' })
     } catch (error: any) {
-        if (error.name === 'ApiError') {
-            dispatch({ type: '@ui/errored', error: 404 })
-        } else {
-            dispatch({ type: '@ui/errored', error: 500 })
-        }
+        dispatchErrorByName(error, dispatch)
     }
 }
+
