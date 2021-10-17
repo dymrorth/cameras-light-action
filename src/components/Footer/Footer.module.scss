@@ -13,8 +13,14 @@
         justify-content: space-around;
         padding: $space-m;
 
-        & > * {
+        a {
+            display: flex;
+            align-items: center;
             padding: $space-s $space-m;
+
+            svg {
+                margin-right: $space-xs;
+            }
         }
     }
 }
