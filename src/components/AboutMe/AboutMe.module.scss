@@ -1,0 +1,75 @@
+@import 'styles/common';
+@import 'styles/fonts';
+
+$floor-1: translateZ(3rem);
+$floor-2: translateZ(6rem);
+$floor-3: translateZ(9rem);
+
+.card {
+    position: relative;
+    min-width: 300px;
+    max-width: 400px;
+    width: 100%;
+    height: 450px;
+    padding: 7em 3em;
+    text-align: center;
+    transition: transform 2s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+
+    &:hover, &:active {
+        transform: rotateY(0.5turn);
+    }
+
+    .front, .back {
+        position: absolute;
+        inset: 0;
+        padding: 3em 1em;
+        display: grid;
+        align-content: center;
+
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+    }
+
+    .front {
+        background: var(--color-overlay);
+        background-image: $profile-image-url;
+        background-size: cover;
+        background-blend-mode: overlay;
+        color: var(--color-text-1);
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 1em;
+            border: 3px solid currentColor;
+            transform: $floor-1;
+        }
+
+        .title {
+            transform: $floor-3;
+            font-size: $font-size-xl;
+        }
+
+        .subtitle {
+            transform: $floor-2;
+            letter-spacing: 7px;
+            font-size: $font-size-s;
+            opacity: 0.9;
+        }
+    }
+
+    .back {
+        transform: rotateY(0.5turn);
+        color: var(--color-white);
+        background: var(--color-black);
+
+        .body {
+            transform: $floor-2;
+            @include font-bio($font-size-base);
+            font-size: 1.15rem;
+        }
+    }
+}
+

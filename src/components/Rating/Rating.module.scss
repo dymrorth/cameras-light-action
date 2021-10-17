@@ -1,0 +1,71 @@
+@import 'styles/common';
+
+$animation-delay: 1s;
+$top-slice-animation: borderTopToTransparent var(--transition-duration) ease $animation-delay forwards;
+$right-slice-animation: borderRightToTransparent var(--transition-duration) ease $animation-delay * 2 forwards;
+$bottom-slice-animation: borderBottomToTransparent var(--transition-duration) ease $animation-delay * 3 forwards;
+$left-slice-animation: borderLeftToTransparent var(--transition-duration) ease $animation-delay * 4 forwards;
+
+.gauge {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: var(--color-background-1);
+    border: 10px solid var(--color-primary);
+    border-radius: 100%;
+    box-shadow: 0 0 0 10px var(--color-background-1);
+
+    &[data-quarter='0'] {
+        animation: $top-slice-animation, $right-slice-animation, $bottom-slice-animation, $left-slice-animation;
+    }
+    &[data-quarter='1'] {
+        animation: $top-slice-animation, $right-slice-animation, $bottom-slice-animation;
+    }
+    &[data-quarter='2'] {
+        animation: $top-slice-animation, $right-slice-animation;
+    }
+    &[data-quarter='3'] {
+        animation: $top-slice-animation;
+    }
+
+    &::after,
+    &::before {
+        content: '';
+        position: absolute;
+        background-color: var(--color-background-1);
+        width: 130%;
+        height: 10px;
+        transform: rotate(-45deg);
+    }
+    &::after {
+        bottom: 0;
+        left: 0;
+        transform-origin: left;
+        transform: rotate(-45deg);
+    }
+    &::before {
+        bottom: 0;
+        right: 0;
+        transform-origin: right;
+        transform: rotate(45deg);
+    }
+}
+
+.value {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $font-size-l;
+}
+
+.count {
+    position: absolute;
+    z-index: 1;
+    bottom: $space-xs;
+    text-align: center;
+    width: 100%;
+    font-size: $font-size-xs;
+}

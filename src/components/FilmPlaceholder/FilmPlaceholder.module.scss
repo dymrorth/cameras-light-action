@@ -1,0 +1,60 @@
+@import 'styles/common';
+
+.film {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    background: var(--color-background-2);
+
+    border-radius: 5px;
+    padding: $space-l $space-m;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        .top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: $space-s;
+
+            .title {
+                @include placeholderLoadingElement(70%, 2rem);
+            }
+
+            .rating {
+                @include placeholderLoadingElement(50px, 50px, 100%);
+            }
+        }
+
+        .overview {
+            display: flex;
+            flex-direction: column;
+
+            span {
+                @include placeholderLoadingElement(70%, 0.7rem);
+                margin: $space-s 0;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $tablet-break) {
+    .film {
+        padding: $space-xl $space-l;
+
+        .poster {
+            @include placeholderLoadingElement(200px, 300px);
+        }
+
+        .content {
+            padding: 0 $space-l;
+
+            .top {
+                margin-bottom: $space-l;
+            }
+        }
+    }
+}

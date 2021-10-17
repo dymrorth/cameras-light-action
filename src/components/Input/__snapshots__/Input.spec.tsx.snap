@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input /> when mounted has placeholder text 1`] = `
+<DocumentFragment>
+  <div
+    class="inputWrap"
+  >
+    <input
+      class="input"
+      placeholder="Search..."
+      type="text"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<Input /> with icon has icon element 1`] = `
+<DocumentFragment>
+  <div
+    class="inputWrap"
+  >
+    <input
+      class="input"
+      type="text"
+    />
+    <div
+      class="icon"
+    >
+      <p>
+        icon
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

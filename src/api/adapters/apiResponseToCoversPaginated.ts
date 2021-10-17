@@ -7,7 +7,15 @@ export const apiResponseToCoversPaginated = (coversFromApi: CoversApiResponse, b
     const { page, total_pages, results } = coversFromApi
 
     const covers: Cover[] = results.map(
-        result => new Cover(result.id, result.title, result.vote_average, result.vote_count, getPosterPath(baseResourcesPath, result.poster_path))
+        result =>
+            new Cover(
+                result.id,
+                result.title,
+                result.vote_average,
+                result.vote_count,
+                getPosterPath(baseResourcesPath, result.poster_path),
+                result.overview
+            )
     )
 
     return {

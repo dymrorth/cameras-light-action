@@ -71,14 +71,10 @@ lights-camera-action
 │   ├── manifest.json
 │   └── robots.txt
 └── src
-    ├── App.css
-    ├── App.js
-    ├── App.test.js
-    ├── index.css
-    ├── index.js
-    ├── logo.svg
-    ├── serviceWorker.js
-    ├── setupTests.js
+    ├── index.tsx
+    ├── service-worker.ts
+    ├── serviceWorkerRegistration.ts
+    ├── setupTests.ts
     ├── api
     │   ├── adapters
     │   ├── fixtures
@@ -89,6 +85,7 @@ lights-camera-action
     ├── constants
     ├── hooks
     ├── store
+    ├── styles
     ├── types
     └── utils
 ```
@@ -107,6 +104,3 @@ En el testing utilizo *React Testing Library* con sus dependencias _@testing-lib
 He usado *SASS* como preprocesador de CSS, para ello se necesita de las dependencias _node-sass_ y _sass-loader_
  
 Para el manejo del estado de la aplicación he usado *Redux* con sus dependencias _react-redux_ para una aplicación en *React* y _redux-thunk_ para el manejo de lógica asíncrona.
-
-
-## Decisiones de diseño

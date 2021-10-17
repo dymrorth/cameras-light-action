@@ -3,8 +3,7 @@
 @import './colors';
 @import './theme';
 @import './fonts';
-
-body {
-    transition: background var(--transition-duration) ease;
-    background-color: var(--color-background-1);
-}
+@import './animations';
+@import './placeholders';
+@import './breakpoints';
+@import './constants';

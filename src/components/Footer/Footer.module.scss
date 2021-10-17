@@ -1,0 +1,27 @@
+@import 'styles/common';
+
+.footer {
+    width: 100%;
+    background: var(--color-background-2);
+    z-index: $space-level-top;
+
+    .content {
+        max-width: $desktop-break;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        padding: $space-m;
+
+        a {
+            display: flex;
+            align-items: center;
+            padding: $space-s $space-m;
+
+            svg {
+                margin-right: $space-xs;
+            }
+        }
+    }
+}

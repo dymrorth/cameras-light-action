@@ -1,6 +1,7 @@
 :root {
-    --color-primary: #4ed6f8;
-    --color-primary-dark: #274b74;
+    --color-primary: #4cc9f0;
+    --color-primary-dark: #3a0ca3;
+    --color-secondary: #f72585;
 
     --color-black: #2b2b2b;
     --color-grey-1: #5e5e5e;
@@ -29,6 +30,9 @@
     --color-text-dark-2: #aaaac7;
     --color-text-dark-3: #f2f2f6;
     --color-text-dark-4: #d7d7e4;
+
+    --color-overlay-light: #f2f2f6;
+    --color-overlay-dark: #1f1f2f;
 
     --gradient-primary: linear-gradient(97deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
 }

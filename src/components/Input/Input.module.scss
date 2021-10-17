@@ -1,0 +1,46 @@
+@import 'styles/common';
+
+.inputWrap {
+    position: relative;
+
+    .input {
+        position: relative;
+        width: 100%;
+        background: none;
+        border: none;
+        border-bottom: 4px solid var(--color-text-1);
+        color: var(--color-text-1);
+        font-size: $font-size-xl;
+        transition: border var(--transition-duration) ease;
+        outline: none;
+    }
+
+    .icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        svg {
+            font-size: $font-size-xl;
+        }
+    }
+
+    &:hover {
+        .input {
+            border-color: var(--color-primary-dark);
+        }
+        .icon {
+            color: var(--color-primary-dark);
+        }
+    }
+
+    &:active,
+    &:focus-within {
+        .input {
+            border-color: var(--color-primary);
+        }
+        .icon {
+            color: var(--color-primary);
+        }
+    }
+}

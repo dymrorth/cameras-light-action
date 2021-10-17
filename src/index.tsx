@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import App from './App'
+import { MainScene } from 'components'
+
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 
@@ -12,7 +13,7 @@ import { Provider } from 'react-redux'
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-            <App />
+            <MainScene />
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')
