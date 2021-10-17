@@ -5,7 +5,7 @@ import { Film } from 'api/models/Film'
 import { useAppSelector, useThunkDispatch, useRestoreScroll } from 'hooks'
 import { fetchFilm } from 'store/film/filmActions'
 
-import { FilmPlaceholder, Poster, Rating, UIError } from 'components'
+import { FilmPlaceholder, Rating, UIError } from 'components'
 
 import { useParams } from 'react-router'
 
@@ -41,7 +41,7 @@ const FilmScene: React.FC<{}> = () => {
                         <h3>Director</h3>
                         {film?.directors && film?.directors.map(director => <p key={director}>{director}</p>)}
                         <Rating value={film.rating} count={film.voteCount} />
-                        <Poster src={film.poster} />
+                        <img src={film.poster} />
                     </article>
                 </section>
             </UIError>
